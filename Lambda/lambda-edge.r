@@ -1,6 +1,5 @@
 
 
-
 ***********
 Lambda@Edge
 ***********
@@ -8,6 +7,8 @@ Lambda@Edge
     Synchronous invocation
     **********************
         - Data traffic on the modern Internet is growing rapidly
+        - You can not use the latest or alias but only the number version of lambda
+        - Max memory size of 128 MB and timeout of 5 seconds (for viewer request and response)
         - To keep up with this growth, website and application owners have turned to CDNs (Content Delivery Networks) 
           like Amazon CloudFront to cache web content on geographically dispersed servers located at edge locations 
           around the world

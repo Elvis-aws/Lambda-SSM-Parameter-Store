@@ -3,10 +3,10 @@
 ************
 Dependencies
 ************
-    - If ur function depends on external liabraries, u need to install the packages along side your code 
+    - If ur function depends on external libraries, u need to install the packages along side your code
       and zip them all together
-    - Upload the zip file if less than 50MB else to S3 and point lambda to the S3 bucket
-    - Native liabraries work but they need to be compile on amazon linux
+    - Upload the zip file if less than 50 MB else to S3 and point lambda to the S3 bucket
+    - Native libraries work but they need to be compile on amazon linux
         - Cloud formation
             - You can create Lambda functions by using cloudformation templates but for very simple 
               functions as this template does not reference dependencies

@@ -1,10 +1,10 @@
 
 
-
 ****************************
 Lambda event source mappings
 ****************************
-    - synchronous invocation of lambda
+    - synchronous invocation of lambda (This is because the lambda service reads the queue and invokes your
+      function synchronously)
     - An event source mapping is a Lambda resource that reads from an event source and invokes a Lambda 
       function
     - You can use event source mappings to process items from a stream or queue in services that dont invoke 
@@ -61,19 +61,19 @@ Lambda event source mappings
             - Process up to 10 batches in parallel
             - If the function returns an error, this can block the function. The function will do the following
                 - Discard old events to a destination
-                - Restric the number of retries
+                - Restrict the number of retries
                 - Split the batch on error
         ****************
         SQS and SQS Fifo
         ****************
             - Event source mapping will pull SQS long polling
             - Specify a batch size 1-10
-            - Set queue visibility timeout to 6x that of ur lambda function
+            - Set queue visibility timeout to 6 x that of ur lambda function
             - To use DLQ
                 - Set up on the SQS queue not lambda (DLQ for lambda is only for asynchronous invocations)
                 - Use lambda destinations for failure
         ****************************
-        Lambda event mapper scalling
+        Lambda event mapper scaling
         ****************************
             ****************************
             Kinesis and dynamodb streams
@@ -84,7 +84,7 @@ Lambda event source mappings
             SQS standard queue
             ******************
                 - Lambda adds 60 more instances to scale up
-                - Up to 1000 batches of message processed simultaniously
+                - Up to 1000 batches of message processed simultaneously
             ********
             SQS Fifo
             ********

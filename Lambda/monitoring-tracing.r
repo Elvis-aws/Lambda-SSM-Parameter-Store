@@ -14,7 +14,7 @@ CloudWatch Metrix
 X-Ray
 *****
     - Enable in Lambda configuration (Active tracing)
-    - Runs the x-ray demond automatic for u _X_AMZN_TRACE_ID
+    - Runs the x-ray demon automatic for u _X_AMZN_TRACE_ID
         - The X-Ray tracing header
             - This environment variable is not defined for custom runtimes (for example, runtimes that use 
               the provided or provided.al2 identifiers)

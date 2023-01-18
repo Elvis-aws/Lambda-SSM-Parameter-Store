@@ -5,7 +5,7 @@ Lambda destinations
 *******************
     - When a function is invoked asynchronously, Lambda sends the event to an internal queue
     - A separate process reads events from the queue and executes your Lambda function
-    - When the event is added to the queue, Lambda previously only returned a 2xx status code to confirm that 
+    - When the event is added to the queue, Lambda previously only returned a 200 status code to confirm that
       the queue has received this event
     - There was no additional information to confirm whether the event had been processed successfully
     - With Destinations, you can route asynchronous function results as an execution record to a destination 

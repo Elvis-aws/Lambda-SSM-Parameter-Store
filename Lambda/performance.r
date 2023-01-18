@@ -3,7 +3,7 @@
 ******************
 Lambda Performance
 ******************
-    - From 128MB to 10GB in 1MB increament
+    - From 128 MB to 10 GB in 1 MB increment
     - Increase RAM if your application is CPU bound
     - You can only increase function CPU and not RAM
     - Default time out is 3 seconds and max is 900 seconds (15 min)

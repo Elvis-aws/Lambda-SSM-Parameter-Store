@@ -1,4 +1,5 @@
 
+
 *****************
 EventBridge Event
 *****************
@@ -12,26 +13,3 @@ EventBridge Event
       the event from its source
     - The following example shows an event that originated from a database snapshot in Amazon Relational 
       Database Service.
-
-{
-    "version": "0",
-    "id": "fe8d3c65-xmpl-c5c3-2c87-81584709a377",
-    "detail-type": "RDS DB Instance Event",
-    "source": "aws.rds",
-    "account": "123456789012",
-    "time": "2020-04-28T07:20:20Z",
-    "region": "us-east-2",
-    "resources": [
-        "arn:aws:rds:us-east-2:123456789012:db:rdz6xmpliljlb1"
-    ],
-    "detail": {
-        "EventCategories": [
-            "backup"
-        ],
-        "SourceType": "DB_INSTANCE",
-        "SourceArn": "arn:aws:rds:us-east-2:123456789012:db:rdz6xmpliljlb1",
-        "Date": "2020-04-28T07:20:20.112Z",
-        "Message": "Finished DB Instance backup",
-        "SourceIdentifier": "rdz6xmpliljlb1"
-    }
-}

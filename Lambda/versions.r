@@ -3,7 +3,7 @@
 ***************
 Lambda versions
 ***************
-    When we work on a lambda funcion, we work on latest ($LATEST)
+    When we work on a lambda function, we work on latest ($LATEST)
     When we publish, we create a version
     The new version is immutable (You can not change it)
 **************

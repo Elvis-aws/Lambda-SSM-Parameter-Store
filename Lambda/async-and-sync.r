@@ -7,7 +7,8 @@ Synchronous invocation
     - Each function is invoked after the other
     - We need to wait for the results before we proceed to the next function 
     - Your application has to handle any retries due to failures
-    - 
+
+
 
 ***********************
 Asynchronous invocation
@@ -26,7 +27,7 @@ Asynchronous invocation
                   purchase ID)
                 - Check if the attribute value exists in a control database (such as an Amazon DynamoDB table)
                 - If a unique value exists (indicating a duplicated event), gracefully terminate the execution 
-                  (that is, without throwing an error). If a unique value doesn’t exist, continue the execution 
+                  (that is, without throwing an error). If a unique value does’t exist, continue the execution
                   normally
                 - When the function work finishes successfully, include a record in the control database
                 - Finish the execution
@@ -36,4 +37,6 @@ Asynchronous invocation
               the function was successfully invoked
             - We thus need a DLQ to capture any failed invocations
             - We can always configure a number of retries before sending to our DLQ in SQS
+
+Reading Source => https://www.youtube.com/watch?v=a2eKpCu9Ads
     

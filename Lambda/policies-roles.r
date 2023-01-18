@@ -11,22 +11,44 @@ Lambda execution role
        assuming this role
      - You dont have to call sts:AssumeRole in your function code
 
-{
-    "Version": "2012-10-17",
-    "Statement": [
-        {
-            "Sid": "ExampleSourceFunctionArn",
-            "Effect": "Allow",
-            "Action": "s3:PutObject",
-            "Resource": "arn:aws:s3:::lambda_bucket/*",
-            "Condition": {
-                "ArnEquals": {
-                    "lambda:SourceFunctionArn": "arn:aws:lambda:us-east-1:123456789012:function:source_lambda"
+     ************
+     Trust Policy
+     ************
+            -  A roles trust policy gives the specified principals permission to assume the role. In the following
+               example, you grant the Lambda service principal permission to assume your role.
+
+                {
+                  "Version": "2012-10-17",
+                  "Statement": [
+                    {
+                      "Effect": "Allow",
+                      "Principal": {
+                        "Service": "lambda.amazonaws.com"
+                      },
+                      "Action": "sts:AssumeRole"
+                    }
+                  ]
                 }
+     ******
+     Policy
+     ******
+            - Once the role is created, you can then attach a policy to the role as below
+            {
+                "Version": "2012-10-17",
+                "Statement": [
+                    {
+                        "Sid": "ExampleSourceFunctionArn",
+                        "Effect": "Allow",
+                        "Action": "s3:PutObject",
+                        "Resource": "arn:aws:s3:::lambda_bucket/*",
+                        "Condition": {
+                            "ArnEquals": {
+                                "lambda:SourceFunctionArn": "arn:aws:lambda:us-east-1:123456789012:function:source_lambda"
+                            }
+                        }
+                    }
+                ]
             }
-        }
-    ]
-}
 
 **************************************
 Identity-based IAM policies for Lambda

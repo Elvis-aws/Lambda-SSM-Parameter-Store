@@ -12,4 +12,4 @@ Lambda Docker
         - Lambda provides multi-architecture base images. However, the image you build for your function must 
           target only one of the architectures. Lambda does not support functions that use multi-architecture 
           container images 
-    - If the container does not implement the Lambda-Runtime-API, then run the container using FArgate
+    - If the container does not implement the Lambda-Runtime-API, then run the container using fargate

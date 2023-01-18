@@ -13,7 +13,7 @@ Lambda in VPC
         - Lambda creates an ENI in ur subnets
         - Create AWSLambdaVPCAccessExecutionRole
         - Lambda goes through the ENI to access resources in ur VPC subnets
-    - Deploying a Lambda funcion in a public subnet does not give it internet access or public IP
+    - Deploying a Lambda function in a public subnet does not give it internet access or public IP
     - Deploy in a private subnet and attach a NATGateway to it
     - Use a NAT device to access Dynamodb or VPC endpoint
     - CloudWatch logs will work no matter were the Lambda function is hosted
