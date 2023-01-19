@@ -1,6 +1,7 @@
 AWSTemplateFormatVersion: '2010-09-09'
 Transform: AWS::Serverless-2016-10-31
-Description: A demonstration of how to start query execution and fetch the result from an Athena table using an AWS doc function.
+Description: A demonstration of how to start query execution and fetch the result
+  from an Athena table using an AWS doc function.
 Parameters:
   AthenaWorkGroupName:
     Type: String
@@ -10,30 +11,34 @@ Parameters:
     Type: String
     Default: sabsden
     Description: Enter your S3 Bucket Name
-
 Resources:
-  # Define a doc function
   AthenaQueryFunction:
     Type: AWS::Serverless::Function
     Properties:
-      CodeUri: function/
+      CodeUri: AthenaQueryFunction
       Runtime: python3.9
       Timeout: 10
       Handler: athenaquerymaker.lambda_handler
       Policies:
       - AthenaQueryPolicy:
-          WorkGroupName: !Ref AthenaWorkGroupName
+          WorkGroupName:
+            Ref: AthenaWorkGroupName
       - S3CrudPolicy:
-          BucketName: !Ref S3BucketName
+          BucketName:
+            Ref: S3BucketName
       - Statement:
         - Sid: GlueGetTablePolicy
           Effect: Allow
           Action:
           - glue:GetTable
-          Resource: [ !Sub 'arn:${AWS::Partition}:glue:${AWS::Region}:${AWS::AccountId}:catalog', 
-            !Sub 'arn:${AWS::Partition}:glue:${AWS::Region}:${AWS::AccountId}:database/*', 
-            !Sub 'arn:${AWS::Partition}:glue:${AWS::Region}:${AWS::AccountId}:table/*']
+          Resource:
+          - Fn::Sub: arn:${AWS::Partition}:glue:${AWS::Region}:${AWS::AccountId}:catalog
+          - Fn::Sub: arn:${AWS::Partition}:glue:${AWS::Region}:${AWS::AccountId}:database/*
+          - Fn::Sub: arn:${AWS::Partition}:glue:${AWS::Region}:${AWS::AccountId}:table/*
+    Metadata:
+      SamResourceId: AthenaQueryFunction
 Outputs:
   AthenaQueryFunction:
     Description: AthenaQueryFunction ARN
-    Value: !Ref AthenaQueryFunction
+    Value:
+      Ref: AthenaQueryFunction

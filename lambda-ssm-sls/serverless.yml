@@ -1,4 +1,4 @@
-service: lambda-ssm-sls
+service: doc-lambda-ssm-sls
 
 frameworkVersion: "3"
 
